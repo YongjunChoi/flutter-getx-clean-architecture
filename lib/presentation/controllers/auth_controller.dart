@@ -8,6 +8,7 @@ class AuthController extends GetxController {
   final SignUpUseCase _loginUseCase;
   final store = Get.find<LocalStorageService>();
   var isLoggedIn = false.obs;
+  var currentIndex = 0.obs;
 
   User? get user => store.user;
 

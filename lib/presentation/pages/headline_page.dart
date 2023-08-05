@@ -1,10 +1,14 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx_clean_architecture/presentation/controllers/headline/headline_controller.dart';
-import 'package:getx_clean_architecture/presentation/pages/detail/detail_page.dart';
-import 'package:getx_clean_architecture/presentation/pages/headline/views/article_cell.dart';
+import 'package:getx_clean_architecture/presentation/pages/detail_page.dart';
+import 'package:getx_clean_architecture/presentation/pages/profile_page.dart';
+import 'package:getx_clean_architecture/presentation/pages/views/article_cell.dart';
+
+import '../controllers/headline_controller.dart';
 
 class HeadlinePage extends GetView<HeadlineController> {
+
   final _scrollController = ScrollController();
 
   @override
@@ -21,11 +25,14 @@ class HeadlinePage extends GetView<HeadlineController> {
         _scrollController.removeListener(_scrollListener);
       },
       builder: (_) {
-        return CupertinoPageScaffold(
-          navigationBar: CupertinoNavigationBar(
-            middle: Text('Headline'),
+        return Scaffold(
+          appBar: AppBar(
+            title: Text('Headline'),
           ),
-          child: ListView.builder(
+          endDrawer: Drawer(
+            child: ProfilePage(),
+          ),
+          body: ListView.builder(
             controller: _scrollController,
             itemCount: controller.articles.length,
             itemBuilder: (context, index) {

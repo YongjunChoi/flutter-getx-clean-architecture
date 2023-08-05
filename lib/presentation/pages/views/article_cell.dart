@@ -52,7 +52,7 @@ class ArticleCell extends StatelessWidget {
                   style: AppTextStyles.body,
                 ),
                 Text(
-                  Jiffy(article.publishedAt).yMMMMd,
+                  Jiffy.parseFromDateTime(article.publishedAt!).yMMMd,
                   maxLines: 1,
                   style: AppTextStyles.body,
                 ),

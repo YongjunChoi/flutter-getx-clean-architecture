@@ -32,4 +32,16 @@ class LocalStorageService extends GetxService {
       _sharedPreferences?.remove(_Key.user.toString());
     }
   }
+
+  @override
+  void onReady() {
+    // TODO: implement onReady
+    super.onReady();
+  }
+
+  @override
+  void onClose() {
+    // TODO: implement onClose
+    super.onClose();
+  }
 }
